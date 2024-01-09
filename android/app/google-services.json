@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "539528718301",
+    "project_id": "driftr-balloon",
+    "storage_bucket": "driftr-balloon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:539528718301:android:85b8af4a178b55e796f834",
+        "android_client_info": {
+          "package_name": "com.driftr.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "539528718301-fsfec086akmt84t15rdjumbkdct0pv86.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.driftr.app",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "539528718301-rnlgnjor5a9a1kss65cu5m1lnf9q1m5v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqnM7ZbeRCjhMXzs4RLk4vTP9UvbTIWDg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "539528718301-rnlgnjor5a9a1kss65cu5m1lnf9q1m5v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "539528718301-6cg0c6mhr8s86e2cn42j4pjud7vmhdqi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.driftr.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

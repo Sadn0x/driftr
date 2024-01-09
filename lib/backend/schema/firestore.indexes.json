@@ -1,0 +1,32 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "voo",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "regiao",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "hora_inicio",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "voo",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "regiao",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "hora_fim",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ]
+}

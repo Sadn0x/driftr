@@ -1,0 +1,106 @@
+// Automatic FlutterFlow imports
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import 'index.dart'; // Imports other custom widgets
+import '/custom_code/actions/index.dart'; // Imports custom actions
+import '/flutter_flow/custom_functions.dart'; // Imports custom functions
+import 'package:flutter/material.dart';
+// Begin custom widget code
+// DO NOT REMOVE OR MODIFY THE CODE ABOVE!
+
+// ignore_for_file: deprecated_member_use_from_same_package
+
+import 'package:http/http.dart' as http;
+
+class UserLocationDetails extends StatefulWidget {
+  const UserLocationDetails({
+    Key? key,
+    this.width,
+    this.height,
+    this.fontSize = 16,
+    required this.startCoordinate,
+    required this.endCoordinate,
+    required this.iOSGoogleMapsApiKey,
+    required this.androidGoogleMapsApiKey,
+    required this.webGoogleMapsApiKey,
+  }) : super(key: key);
+
+  final double? width;
+  final double? height;
+  final double fontSize;
+  final LatLng startCoordinate;
+  final LatLng endCoordinate;
+  final String iOSGoogleMapsApiKey;
+  final String androidGoogleMapsApiKey;
+  final String webGoogleMapsApiKey;
+
+  @override
+  State<UserLocationDetails> createState() => _UserLocationDetailsState();
+}
+
+class _UserLocationDetailsState extends State<UserLocationDetails> {
+  String durationString = '';
+
+  @override
+  void initState() {
+    _retrieveDuration();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        Text(
+          durationString,
+          style: FlutterFlowTheme.of(context).bodyText1.override(
+                fontFamily: 'Poppins',
+                color: Colors.white,
+                fontSize: widget.fontSize,
+                fontWeight: FontWeight.w600,
+              ),
+        ),
+        Padding(
+          padding: const EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
+          child: Text(
+            'away',
+            style: FlutterFlowTheme.of(context).bodyText1.override(
+                  fontFamily: 'Poppins',
+                  color: Color(0x98FFFFFF),
+                  fontSize: widget.fontSize,
+                  fontWeight: FontWeight.w600,
+                ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  _retrieveDuration() async {
+    double startLatitude = widget.startCoordinate.latitude;
+    double startLongitude = widget.startCoordinate.longitude;
+    double destinationLatitude = widget.endCoordinate.latitude;
+    double destinationLongitude = widget.endCoordinate.longitude;
+    String googleMapsApiKey = widget.androidGoogleMapsApiKey;
+
+    var url = Uri.parse(
+      'https://maps.googleapis.com/maps/api/distancematrix/json?destinations=$destinationLatitude,$destinationLongitude&origins=$startLatitude,$startLongitude&key=$googleMapsApiKey',
+    );
+    var response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      final jsonResponse = jsonDecode(response.body) as Map<String, dynamic>;
+      final String durationText =
+          jsonResponse['rows'][0]['elements'][0]['duration']['text'];
+      setState(() {
+        durationString = durationText;
+      });
+    } else {
+      debugPrint('ERROR in calculating duration');
+    }
+  }
+}
