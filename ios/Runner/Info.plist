@@ -16,14 +16,6 @@
 	<string>test</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Este aplicativo precisa acessar sua localização.</string>
-    <key>NSLocationTemporaryUsageDescriptionDictionary</key>
-    <dict>
-        <key>Usar Localização</key>
-        <string>Este aplicativo precisa acessar sua localização temporariamente.</string>
-    </dict>
-
 
 	<key>CFBundleShortVersionString</key>
 	<string>$(FLUTTER_BUILD_NAME)</string>
